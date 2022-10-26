@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body class="page">
+    <div class="container">
+      <div class="item item__input">
+        <form class="form" name="form">
+          <input type="text" class="input" name="textView" readonly />
+        </form>
+      </div>
+      <div class="item item__clean" onclick="clean()">С</div>
+      <div class="item item__back" onclick="back()">&larr;</div>
+      <div class="item" onclick="insert('+')">+</div>
+      <div class="item" onclick="insert('-')">-</div>
+      <div class="item" onclick="insert('*')">&times;</div>
+      <div class="item" onclick="insert('/')">&divide;</div>
+      <div class="item" onclick="insert('7')">7</div>
+      <div class="item" onclick="insert('8')">8</div>
+      <div class="item" onclick="insert('9')">9</div>
+      <div class="item" onclick="insert('(')">(</div>
+      <div class="item" onclick="insert('4')">4</div>
+      <div class="item" onclick="insert('5')">5</div>
+      <div class="item" onclick="insert('6')">6</div>
+      <div class="item" onclick="insert(')')">)</div>
+      <div class="item" onclick="insert('1')">1</div>
+      <div class="item" onclick="insert('2')">2</div>
+      <div class="item" onclick="insert('3')">3</div>
+      <div class="item item__equal" onclick="equal()">=</div>
+      <div class="item item__zero" onclick="insert('0')">0</div>
+      <div class="item" onclick="insert('.')">.</div>
+    </div>
+    <script>
+      function insert(num) {
+        document.form.textView.value = document.form.textView.value + num;
+        onclick = "insert";
+      }
+
+      function clean() {
+        document.form.textView.value = "";
+      }
+
+      function back() {
+        const exp = document.form.textView.value;
+        document.form.textView.value = exp.substring(0, exp.length - 1); //помогает получить подстроку (первый и предпоследний символ)
+      }
+
+      function equal() {
+        const exp = document.form.textView.value;
+        if (exp) {
+          document.form.textView.value = eval(exp); //функция eval принимает строку и обращает в результат
+        }
+      }
+
+        var SYMBOL_KEYCODES = {
+          96: "0",
+          97: "1",
+          98: "2",
+          99: "3",
+          100: "4",
+          101: "5",
+          102: "6",
+          103: "7",
+          104: "8",
+          105: "9",
+          109: "-",
+          107: "+",
+          106: "*",
+          111: "/",
+          110: ".",
+          219: "(",
+          221: ")",
+        };
+
+        var ENTER_KEYCODE = 13;
+        var BACKSPACE_KEYCODE = 8;
+
+      document.addEventListener('keydown', function(e){
+        if(e.keyCode in SYMBOL_KEYCODES) {
+          e.preventDefault();
+          insert(SYMBOL_KEYCODES[e.keyCode])
+        } else if (e.keyCode === ENTER_KEYCODE) {
+          equal();
+        } else if (e.keyCode === BACKSPACE_KEYCODE) {
+          back
+        }
+      })
+    </script>
+  </body>
+</html>

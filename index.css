@@ -1,0 +1,77 @@
+.page {
+    background-image: url(images/pngtree-delicate-watercolor-background-for-wedding-banner-picture-image_1227135.jpg);
+    background-size: 100% 100%;
+    max-width: 1280px;
+    min-width: 320px;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-family: 'Tahoma';
+    margin-top: 180px;
+}
+
+.container {
+    background-color: rgba(234, 58, 141, 0.3);
+    color:white;
+    user-select: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 4px;
+    border-radius: 5px;
+    max-width: 360px;
+    margin: auto;
+}
+
+.item {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form {
+    max-width: 100%;
+}
+
+.input {
+    width: 100%;
+    height: 60px;
+    border: none;
+    font-size: 30px;
+    outline: none;
+    text-align: right;
+    background-color: transparent;
+    color: white;
+}
+
+.item__input {
+    padding-left: 0;
+    padding-right: 0;
+    grid-column: 1/-1;
+}
+
+.item__clean {
+    grid-column: 1/3;
+    background-color: rgba(234, 58, 141, 0.2);
+}
+
+.item__back {
+    grid-column: 3/-1;
+    background-color: rgba(234, 58, 141, 0.2);
+}
+
+.item__zero {
+    grid-column: 1/3;
+}
+
+.item__equal {
+    grid-column: 4;
+    grid-row: 6/8;
+}
